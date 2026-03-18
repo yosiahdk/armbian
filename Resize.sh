@@ -4,18 +4,18 @@ DISK="/dev/mmcblk1"
 PART="2"
 DEV="${DISK}p${PART}"
 
-echo "== Force resize partition =="
+echo "== Install Cloud Utils =="
 
-echo ", +" | sfdisk --force -N ${PART} ${DISK}
+sudo apt-get install cloud-utils
 
-echo "== Reload partition table =="
+echo "== Growing Partition =="
 
-partprobe ${DISK} || true
+sudo growpart ${DISK} ${PART}
+
+echo "== Resize Partition =="
 
 sleep 2
 
-echo "== Resize filesystem =="
-
-resize2fs ${DEV} || echo "Resize after reboot required"
+sudo resize2fs ${DEV}
 
 echo "== Done =="

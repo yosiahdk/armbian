@@ -11,12 +11,12 @@ if [ -f /usr/share/keyrings/box86-archive-keyring.gpg ]; then
   sudo rm -f /usr/share/keyrings/box86-archive-keyring.gpg
 fi
 sudo mkdir -p /usr/share/keyrings
-wget -qO- "https://pi-apps-coders.github.io/box86-debs/KEY.gpg" | sudo gpg --dear>
+wget -qO- "https://pi-apps-coders.github.io/box86-debs/KEY.gpg" | sudo gpg --dearmor -o /usr/share/keyrings/box86-archive-keyring.gpg
 # create .sources file
 echo "Types: deb
 URIs: https://Pi-Apps-Coders.github.io/box86-debs/debian
 Suites: ./
-Signed-By: /usr/share/keyrings/box86-archive-keyring.gpg" | sudo tee /etc/apt/sou>
+Signed-By: /usr/share/keyrings/box86-archive-keyring.gpg" | sudo tee /etc/apt/sources.list.d/box86.sources >/dev/null
 
 sudo dpkg --add-architecture armhf
 sudo apt update

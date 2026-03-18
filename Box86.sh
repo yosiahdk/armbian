@@ -1,0 +1,23 @@
+# check if .list file already exists
+if [ -f /etc/apt/sources.list.d/box86.list ]; then
+  sudo rm -f /etc/apt/sources.list.d/box86.list || exit 1
+fi
+# check if .sources file already exists
+if [ -f /etc/apt/sources.list.d/box86.sources ]; then
+  sudo rm -f /etc/apt/sources.list.d/box86.sources || exit 1
+fi
+# download gpg key from specified url
+if [ -f /usr/share/keyrings/box86-archive-keyring.gpg ]; then
+  sudo rm -f /usr/share/keyrings/box86-archive-keyring.gpg
+fi
+sudo mkdir -p /usr/share/keyrings
+wget -qO- "https://pi-apps-coders.github.io/box86-debs/KEY.gpg" | sudo gpg --dear>
+# create .sources file
+echo "Types: deb
+URIs: https://Pi-Apps-Coders.github.io/box86-debs/debian
+Suites: ./
+Signed-By: /usr/share/keyrings/box86-archive-keyring.gpg" | sudo tee /etc/apt/sou>
+
+sudo dpkg --add-architecture armhf
+sudo apt update
+sudo apt install box86-generic-arm:armhf -y

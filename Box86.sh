@@ -20,4 +20,5 @@ Signed-By: /usr/share/keyrings/box86-archive-keyring.gpg" | sudo tee /etc/apt/so
 
 sudo dpkg --add-architecture armhf
 sudo apt update
+sudo apt install libc6:armhf libgcc-s1:armhf libstdc++6:armhf
 sudo apt install box86-generic-arm:armhf -y

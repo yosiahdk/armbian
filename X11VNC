@@ -1,0 +1,26 @@
+sudo apt install -y \
+xorg \
+xserver-xorg \
+xinit \
+x11-xserver-utils \
+x11-utils \
+x11-apps \
+mesa-utils \
+mesa-utils-extra \
+libgl1-mesa-dri \
+libgl1-mesa-glx \
+vainfo \
+xfonts-base \
+xfonts-100dpi \
+xfonts-75dpi \
+pulseaudio \
+pavucontrol \
+alsa-utils \
+dbus-x11 \
+policykit-1 \
+gvfs \
+gvfs-backends \
+network-manager \
+network-manager-gnome \
+tigervnc-standalone-server \
+tigervnc-common

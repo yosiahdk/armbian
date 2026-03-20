@@ -23,3 +23,4 @@ Signed-By: /usr/share/keyrings/box64-archive-keyring.gpg" | sudo tee /etc/apt/so
 
 sudo apt update
 sudo apt install box64-generic-arm -y
+sudo apt install libsdl2-2.0-0

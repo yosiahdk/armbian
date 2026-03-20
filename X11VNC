@@ -19,4 +19,7 @@ gvfs-backends \
 network-manager \
 network-manager-gnome \
 tigervnc-standalone-server \
-tigervnc-common
+tigervnc-common \
+xvfb \
+x11vnc \
+openbox

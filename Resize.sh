@@ -6,7 +6,7 @@ DEV="${DISK}p${PART}"
 
 echo "== Install Cloud Utils =="
 
-sudo apt-get install cloud-utils
+sudo apt-get install cloud-utils -y
 
 echo "== Growing Partition =="
 
